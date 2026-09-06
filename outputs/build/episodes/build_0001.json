@@ -1,0 +1,31 @@
+{
+  "episode_id": "build_0001",
+  "recommendation": "FAIL",
+  "overall_severity": "fail",
+  "findings": [
+    {
+      "check": "calibration.extrinsic_mismatch",
+      "severity": "fail",
+      "message": "camera 839512060362: extrinsic actually attached to this episode differs from the canonical value in its declared session 'extrinsics_20200907_105926' by 2.00 deg / 1.0 cm (corpus z-score inf)",
+      "evidence": {
+        "serial": "839512060362",
+        "rot_mismatch_deg": 1.9998113106115225,
+        "trans_mismatch_m": 0.010000000000000004,
+        "z_rot": Infinity,
+        "z_trans": Infinity
+      },
+      "downstream_consequence": "3D hand/object pose reconstructed using this camera is systematically biased; an offline metric that averages over all 8 cameras may barely move while any action label derived from just this view is wrong -- the classic 'moderate offline delta, large online delta' signature"
+    },
+    {
+      "check": "calibration.reprojection_outlier",
+      "severity": "fail",
+      "message": "camera 839512060362: median multi-view reprojection residual is 5.8px (corpus median 1.6px, z=15.4) -- this camera disagrees with the other 7 views on where the tracked hand keypoint actually is",
+      "evidence": {
+        "serial": "839512060362",
+        "reprojection_rmse_px": 5.772213632957457,
+        "z": 15.36029544254719
+      },
+      "downstream_consequence": "keypoint triangulation / hand pose annotation for this episode is degraded specifically on this camera's contribution"
+    }
+  ]
+}

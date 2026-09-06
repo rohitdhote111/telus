@@ -1,0 +1,20 @@
+{
+  "episode_id": "build_0027",
+  "recommendation": "FAIL",
+  "overall_severity": "fail",
+  "findings": [
+    {
+      "check": "sync.stream_clock_mismatch",
+      "severity": "fail",
+      "message": "stream '836212060125': fitted clock offset 0.5ms (corpus z=1.8), rate error 44384ppm (corpus z=353.4) relative to the episode's nominal clock",
+      "evidence": {
+        "stream": "836212060125",
+        "offset_s": 0.0005293172918599828,
+        "rate_ppm": 44384.361497785016,
+        "z_offset": 1.8466572719912984,
+        "z_rate": 353.44113952313603
+      },
+      "downstream_consequence": "any cross-modal fusion (e.g. matching an action to the visual frame it was actually observed at) is misaligned by roughly the offset/drift magnitude -- for a VLA this shows up as the model conditioning on the wrong observation for a given action label"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "episode_id": "holdout_0023",
+  "recommendation": "FAIL",
+  "overall_severity": "fail",
+  "findings": [
+    {
+      "check": "sync.stream_clock_mismatch",
+      "severity": "fail",
+      "message": "stream 'imu': fitted clock offset -250.0ms (corpus z=-5958.5), rate error -16ppm (corpus z=-0.6) relative to the episode's nominal clock",
+      "evidence": {
+        "stream": "imu",
+        "offset_s": -0.24996434531791561,
+        "rate_ppm": -15.956136806827281,
+        "z_offset": -5958.51986556149,
+        "z_rate": -0.5707587320767517
+      },
+      "downstream_consequence": "any cross-modal fusion (e.g. matching an action to the visual frame it was actually observed at) is misaligned by roughly the offset/drift magnitude -- for a VLA this shows up as the model conditioning on the wrong observation for a given action label"
+    }
+  ]
+}

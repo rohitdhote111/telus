@@ -1,0 +1,121 @@
+{
+  "episode_id": "holdout_0004",
+  "recommendation": "FAIL",
+  "overall_severity": "fail",
+  "findings": [
+    {
+      "check": "calibration.extrinsic_mismatch",
+      "severity": "fail",
+      "message": "camera 932122060857: extrinsic actually attached to this episode differs from the canonical value in its declared session 'extrinsics_20200907_105926' by 15.00 deg / 8.0 cm (corpus z-score inf)",
+      "evidence": {
+        "serial": "932122060857",
+        "rot_mismatch_deg": 14.99999999999997,
+        "trans_mismatch_m": 0.08,
+        "z_rot": Infinity,
+        "z_trans": Infinity
+      },
+      "downstream_consequence": "3D hand/object pose reconstructed using this camera is systematically biased; an offline metric that averages over all 8 cameras may barely move while any action label derived from just this view is wrong -- the classic 'moderate offline delta, large online delta' signature"
+    },
+    {
+      "check": "calibration.reprojection_outlier",
+      "severity": "fail",
+      "message": "camera 836212060125: median multi-view reprojection residual is 18.5px (corpus median 1.6px, z=58.5) -- this camera disagrees with the other 7 views on where the tracked hand keypoint actually is",
+      "evidence": {
+        "serial": "836212060125",
+        "reprojection_rmse_px": 18.469124822764904,
+        "z": 58.54273850326827
+      },
+      "downstream_consequence": "keypoint triangulation / hand pose annotation for this episode is degraded specifically on this camera's contribution"
+    },
+    {
+      "check": "calibration.reprojection_outlier",
+      "severity": "fail",
+      "message": "camera 839512060362: median multi-view reprojection residual is 4.9px (corpus median 1.6px, z=11.3) -- this camera disagrees with the other 7 views on where the tracked hand keypoint actually is",
+      "evidence": {
+        "serial": "839512060362",
+        "reprojection_rmse_px": 4.870083901204204,
+        "z": 11.31083745900982
+      },
+      "downstream_consequence": "keypoint triangulation / hand pose annotation for this episode is degraded specifically on this camera's contribution"
+    },
+    {
+      "check": "calibration.reprojection_outlier",
+      "severity": "fail",
+      "message": "camera 840412060917: median multi-view reprojection residual is 26.6px (corpus median 1.6px, z=86.9) -- this camera disagrees with the other 7 views on where the tracked hand keypoint actually is",
+      "evidence": {
+        "serial": "840412060917",
+        "reprojection_rmse_px": 26.62730039973775,
+        "z": 86.8775412129468
+      },
+      "downstream_consequence": "keypoint triangulation / hand pose annotation for this episode is degraded specifically on this camera's contribution"
+    },
+    {
+      "check": "calibration.reprojection_outlier",
+      "severity": "fail",
+      "message": "camera 841412060263: median multi-view reprojection residual is 17.9px (corpus median 1.6px, z=56.4) -- this camera disagrees with the other 7 views on where the tracked hand keypoint actually is",
+      "evidence": {
+        "serial": "841412060263",
+        "reprojection_rmse_px": 17.85465676968066,
+        "z": 56.40858106925987
+      },
+      "downstream_consequence": "keypoint triangulation / hand pose annotation for this episode is degraded specifically on this camera's contribution"
+    },
+    {
+      "check": "calibration.reprojection_outlier",
+      "severity": "fail",
+      "message": "camera 932122060857: median multi-view reprojection residual is 89.2px (corpus median 1.6px, z=304.3) -- this camera disagrees with the other 7 views on where the tracked hand keypoint actually is",
+      "evidence": {
+        "serial": "932122060857",
+        "reprojection_rmse_px": 89.21822843737442,
+        "z": 304.2670274564132
+      },
+      "downstream_consequence": "keypoint triangulation / hand pose annotation for this episode is degraded specifically on this camera's contribution"
+    },
+    {
+      "check": "calibration.reprojection_outlier",
+      "severity": "fail",
+      "message": "camera 932122060861: median multi-view reprojection residual is 15.1px (corpus median 1.6px, z=46.7) -- this camera disagrees with the other 7 views on where the tracked hand keypoint actually is",
+      "evidence": {
+        "serial": "932122060861",
+        "reprojection_rmse_px": 15.072771254750073,
+        "z": 46.74659518984845
+      },
+      "downstream_consequence": "keypoint triangulation / hand pose annotation for this episode is degraded specifically on this camera's contribution"
+    },
+    {
+      "check": "calibration.reprojection_outlier",
+      "severity": "fail",
+      "message": "camera 932122061900: median multi-view reprojection residual is 4.8px (corpus median 1.6px, z=10.9) -- this camera disagrees with the other 7 views on where the tracked hand keypoint actually is",
+      "evidence": {
+        "serial": "932122061900",
+        "reprojection_rmse_px": 4.7579085778261865,
+        "z": 10.921232500545576
+      },
+      "downstream_consequence": "keypoint triangulation / hand pose annotation for this episode is degraded specifically on this camera's contribution"
+    },
+    {
+      "check": "calibration.reprojection_outlier",
+      "severity": "fail",
+      "message": "camera 932122062010: median multi-view reprojection residual is 15.1px (corpus median 1.6px, z=46.9) -- this camera disagrees with the other 7 views on where the tracked hand keypoint actually is",
+      "evidence": {
+        "serial": "932122062010",
+        "reprojection_rmse_px": 15.104379020960629,
+        "z": 46.85637461433126
+      },
+      "downstream_consequence": "keypoint triangulation / hand pose annotation for this episode is degraded specifically on this camera's contribution"
+    },
+    {
+      "check": "sync.stream_clock_mismatch",
+      "severity": "review",
+      "message": "stream '932122062010': fitted clock offset 0.4ms (corpus z=1.6), rate error -581ppm (corpus z=-4.5) relative to the episode's nominal clock",
+      "evidence": {
+        "stream": "932122062010",
+        "offset_s": 0.00043794674295300704,
+        "rate_ppm": -580.9793491637904,
+        "z_offset": 1.6256486038148228,
+        "z_rate": -4.501424222156624
+      },
+      "downstream_consequence": "any cross-modal fusion (e.g. matching an action to the visual frame it was actually observed at) is misaligned by roughly the offset/drift magnitude -- for a VLA this shows up as the model conditioning on the wrong observation for a given action label"
+    }
+  ]
+}

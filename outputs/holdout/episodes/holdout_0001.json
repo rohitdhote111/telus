@@ -1,0 +1,53 @@
+{
+  "episode_id": "holdout_0001",
+  "recommendation": "FAIL",
+  "overall_severity": "fail",
+  "findings": [
+    {
+      "check": "calibration.extrinsic_mismatch",
+      "severity": "fail",
+      "message": "camera 932122060861: extrinsic actually attached to this episode differs from the canonical value in its declared session 'extrinsics_20200907_105926' by 2.00 deg / 1.0 cm (corpus z-score inf)",
+      "evidence": {
+        "serial": "932122060861",
+        "rot_mismatch_deg": 2.0000000000001297,
+        "trans_mismatch_m": 0.010000000000000012,
+        "z_rot": Infinity,
+        "z_trans": Infinity
+      },
+      "downstream_consequence": "3D hand/object pose reconstructed using this camera is systematically biased; an offline metric that averages over all 8 cameras may barely move while any action label derived from just this view is wrong -- the classic 'moderate offline delta, large online delta' signature"
+    },
+    {
+      "check": "calibration.reprojection_outlier",
+      "severity": "fail",
+      "message": "camera 932122060861: median multi-view reprojection residual is 11.2px (corpus median 1.6px, z=33.4) -- this camera disagrees with the other 7 views on where the tracked hand keypoint actually is",
+      "evidence": {
+        "serial": "932122060861",
+        "reprojection_rmse_px": 11.235389493514669,
+        "z": 33.41868209206862
+      },
+      "downstream_consequence": "keypoint triangulation / hand pose annotation for this episode is degraded specifically on this camera's contribution"
+    },
+    {
+      "check": "calibration.reprojection_outlier",
+      "severity": "review",
+      "message": "camera 932122061900: median multi-view reprojection residual is 3.0px (corpus median 1.6px, z=4.8) -- this camera disagrees with the other 7 views on where the tracked hand keypoint actually is",
+      "evidence": {
+        "serial": "932122061900",
+        "reprojection_rmse_px": 2.982337217734167,
+        "z": 4.754355640580881
+      },
+      "downstream_consequence": "keypoint triangulation / hand pose annotation for this episode is degraded specifically on this camera's contribution"
+    },
+    {
+      "check": "calibration.reprojection_outlier",
+      "severity": "review",
+      "message": "camera 932122062010: median multi-view reprojection residual is 2.8px (corpus median 1.6px, z=4.2) -- this camera disagrees with the other 7 views on where the tracked hand keypoint actually is",
+      "evidence": {
+        "serial": "932122062010",
+        "reprojection_rmse_px": 2.80972708786525,
+        "z": 4.154849791585344
+      },
+      "downstream_consequence": "keypoint triangulation / hand pose annotation for this episode is degraded specifically on this camera's contribution"
+    }
+  ]
+}

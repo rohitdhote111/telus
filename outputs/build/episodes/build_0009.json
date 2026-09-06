@@ -1,0 +1,36 @@
+{
+  "episode_id": "build_0009",
+  "recommendation": "FAIL",
+  "overall_severity": "fail",
+  "findings": [
+    {
+      "check": "continuity.dropped_frames",
+      "severity": "fail",
+      "message": "camera 932122062010: 12.4% of declared frames missing (longest contiguous gap: 15 frames / 500ms)",
+      "evidence": {
+        "serial": "932122062010",
+        "dropped_frame_fraction": 0.12396694214876036,
+        "longest_dropped_run_frames": 15
+      },
+      "downstream_consequence": "any downstream consumer that assumes a fixed frame rate (e.g. an action chunking window in a VLA policy) sees a silently corrupted temporal window for this camera during the gap"
+    },
+    {
+      "check": "continuity.cross_camera_frame_count_disagreement",
+      "severity": "review",
+      "message": "cameras disagree on frame count within this episode: {'932122062010': 106} vs majority 121",
+      "evidence": {
+        "counts": {
+          "836212060125": 121,
+          "839512060362": 121,
+          "840412060917": 121,
+          "841412060263": 121,
+          "932122060857": 121,
+          "932122060861": 121,
+          "932122061900": 121,
+          "932122062010": 106
+        }
+      },
+      "downstream_consequence": "multi-view fusion for the disagreeing camera(s) will be misaligned in time relative to the rest of the rig"
+    }
+  ]
+}

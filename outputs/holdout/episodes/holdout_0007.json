@@ -1,0 +1,49 @@
+{
+  "episode_id": "holdout_0007",
+  "recommendation": "FAIL",
+  "overall_severity": "fail",
+  "findings": [
+    {
+      "check": "sync.stream_clock_mismatch",
+      "severity": "review",
+      "message": "stream '840412060917': fitted clock offset 0.9ms (corpus z=3.3), rate error -564ppm (corpus z=-4.4) relative to the episode's nominal clock",
+      "evidence": {
+        "stream": "840412060917",
+        "offset_s": 0.0008741071229957734,
+        "rate_ppm": -563.9003447127644,
+        "z_offset": 3.3110100734294305,
+        "z_rate": -4.3707564952653
+      },
+      "downstream_consequence": "any cross-modal fusion (e.g. matching an action to the visual frame it was actually observed at) is misaligned by roughly the offset/drift magnitude -- for a VLA this shows up as the model conditioning on the wrong observation for a given action label"
+    },
+    {
+      "check": "continuity.dropped_frames",
+      "severity": "fail",
+      "message": "camera 932122061900: 3.7% of declared frames missing (longest contiguous gap: 3 frames / 100ms)",
+      "evidence": {
+        "serial": "932122061900",
+        "dropped_frame_fraction": 0.03749999999999998,
+        "longest_dropped_run_frames": 3
+      },
+      "downstream_consequence": "any downstream consumer that assumes a fixed frame rate (e.g. an action chunking window in a VLA policy) sees a silently corrupted temporal window for this camera during the gap"
+    },
+    {
+      "check": "continuity.cross_camera_frame_count_disagreement",
+      "severity": "review",
+      "message": "cameras disagree on frame count within this episode: {'932122061900': 77} vs majority 80",
+      "evidence": {
+        "counts": {
+          "836212060125": 80,
+          "839512060362": 80,
+          "840412060917": 80,
+          "841412060263": 80,
+          "932122060857": 80,
+          "932122060861": 80,
+          "932122061900": 77,
+          "932122062010": 80
+        }
+      },
+      "downstream_consequence": "multi-view fusion for the disagreeing camera(s) will be misaligned in time relative to the rest of the rig"
+    }
+  ]
+}

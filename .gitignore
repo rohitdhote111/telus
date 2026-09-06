@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.DS_Store
+
+# Regenerable synthetic episode inputs (seeded, reproducible via
+# data_gen/generate_episodes.py + inject_faults.py -- see README.md).
+# Not part of the submission itself; kept out to keep the repo small.
+data/synthetic/
+
+
+Assignment 2 — Rescue a Failing Robot-Learning Dataset.pdf
+
+
+docs/ANALYSIS.md
+docs/PROBLEM3_DEEP_DIVE.md

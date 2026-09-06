@@ -1,0 +1,188 @@
+{
+  "build_0000": null,
+  "build_0001": {
+    "type": "extrinsic_swap",
+    "severity": "mild",
+    "details": {
+      "camera": "839512060362",
+      "angle_deg": 2.0,
+      "trans_m": 0.01
+    }
+  },
+  "build_0002": {
+    "type": "extrinsic_swap",
+    "severity": "severe",
+    "details": {
+      "camera": "932122060857",
+      "angle_deg": 15.0,
+      "trans_m": 0.08
+    }
+  },
+  "build_0003": null,
+  "build_0004": null,
+  "build_0005": {
+    "type": "timestamp_drift",
+    "severity": "mild",
+    "details": {
+      "camera": "836212060125",
+      "drift_end_s": 0.03
+    }
+  },
+  "build_0006": {
+    "type": "timestamp_drift",
+    "severity": "severe",
+    "details": {
+      "camera": "932122060857",
+      "drift_end_s": 0.15
+    }
+  },
+  "build_0007": {
+    "type": "frame_drop",
+    "severity": "mild",
+    "details": {
+      "camera": "840412060917",
+      "start_frame": 75,
+      "run_len": 3
+    }
+  },
+  "build_0008": null,
+  "build_0009": {
+    "type": "frame_drop",
+    "severity": "severe",
+    "details": {
+      "camera": "932122062010",
+      "start_frame": 70,
+      "run_len": 15
+    }
+  },
+  "build_0010": {
+    "type": "pose_teleport",
+    "severity": "mild",
+    "details": {
+      "frame_index": 70,
+      "jump_m": 0.15
+    }
+  },
+  "build_0011": null,
+  "build_0012": {
+    "type": "pose_teleport",
+    "severity": "severe",
+    "details": {
+      "frame_index": 28,
+      "jump_m": 0.6
+    }
+  },
+  "build_0013": null,
+  "build_0014": null,
+  "build_0015": null,
+  "build_0016": null,
+  "build_0017": {
+    "type": "metadata_mismatch",
+    "severity": "mild",
+    "details": {
+      "relative_error": 0.15,
+      "sign": -1
+    }
+  },
+  "build_0018": {
+    "type": "metadata_mismatch",
+    "severity": "severe",
+    "details": {
+      "relative_error": 0.6,
+      "sign": -1
+    }
+  },
+  "build_0019": null,
+  "build_0020": {
+    "type": "imu_desync",
+    "severity": "mild",
+    "details": {
+      "offset_s": -0.05
+    }
+  },
+  "build_0021": {
+    "type": "imu_desync",
+    "severity": "severe",
+    "details": {
+      "offset_s": -0.25
+    }
+  },
+  "build_0022": null,
+  "build_0023": {
+    "type": "extrinsic_swap",
+    "severity": "mild",
+    "details": {
+      "camera": "932122062010",
+      "angle_deg": 2.0,
+      "trans_m": 0.01
+    }
+  },
+  "build_0024": null,
+  "build_0025": {
+    "type": "extrinsic_swap",
+    "severity": "severe",
+    "details": {
+      "camera": "932122062010",
+      "angle_deg": 15.0,
+      "trans_m": 0.08
+    }
+  },
+  "build_0026": {
+    "type": "timestamp_drift",
+    "severity": "mild",
+    "details": {
+      "camera": "932122060861",
+      "drift_end_s": 0.03
+    }
+  },
+  "build_0027": {
+    "type": "timestamp_drift",
+    "severity": "severe",
+    "details": {
+      "camera": "836212060125",
+      "drift_end_s": 0.15
+    }
+  },
+  "build_0028": null,
+  "build_0029": null,
+  "build_0030": {
+    "type": "frame_drop",
+    "severity": "mild",
+    "details": {
+      "camera": "932122062010",
+      "start_frame": 47,
+      "run_len": 3
+    }
+  },
+  "build_0031": null,
+  "build_0032": {
+    "type": "frame_drop",
+    "severity": "severe",
+    "details": {
+      "camera": "932122060857",
+      "start_frame": 36,
+      "run_len": 15
+    }
+  },
+  "build_0033": null,
+  "build_0034": null,
+  "build_0035": null,
+  "build_0036": null,
+  "build_0037": {
+    "type": "pose_teleport",
+    "severity": "mild",
+    "details": {
+      "frame_index": 51,
+      "jump_m": 0.15
+    }
+  },
+  "build_0038": {
+    "type": "pose_teleport",
+    "severity": "severe",
+    "details": {
+      "frame_index": 107,
+      "jump_m": 0.6
+    }
+  },
+  "build_0039": null
+}

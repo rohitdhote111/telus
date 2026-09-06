@@ -1,0 +1,19 @@
+{
+  "episode_id": "build_0018",
+  "recommendation": "FAIL",
+  "overall_severity": "fail",
+  "findings": [
+    {
+      "check": "metadata.duration_frame_count_mismatch",
+      "severity": "fail",
+      "message": "declared duration 1.70s is inconsistent with declared frame count / fps (4.23s expected); relative error 59.9% (corpus z=356.9)",
+      "evidence": {
+        "declared_duration_s": 1.6978101728552848,
+        "expected_duration_s": 4.233333333333333,
+        "relative_error": 0.5989424788530824,
+        "z": 356.8649557520783
+      },
+      "downstream_consequence": "any code that slices this episode by declared duration (rather than actual frame timestamps) will misalign with the real data; suggests the metadata was generated or edited independently of the actual capture"
+    }
+  ]
+}

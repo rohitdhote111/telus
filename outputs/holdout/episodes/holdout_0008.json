@@ -1,0 +1,36 @@
+{
+  "episode_id": "holdout_0008",
+  "recommendation": "FAIL",
+  "overall_severity": "fail",
+  "findings": [
+    {
+      "check": "continuity.dropped_frames",
+      "severity": "fail",
+      "message": "camera 932122061900: 15.6% of declared frames missing (longest contiguous gap: 15 frames / 500ms)",
+      "evidence": {
+        "serial": "932122061900",
+        "dropped_frame_fraction": 0.15625,
+        "longest_dropped_run_frames": 15
+      },
+      "downstream_consequence": "any downstream consumer that assumes a fixed frame rate (e.g. an action chunking window in a VLA policy) sees a silently corrupted temporal window for this camera during the gap"
+    },
+    {
+      "check": "continuity.cross_camera_frame_count_disagreement",
+      "severity": "review",
+      "message": "cameras disagree on frame count within this episode: {'932122061900': 81} vs majority 96",
+      "evidence": {
+        "counts": {
+          "836212060125": 96,
+          "839512060362": 96,
+          "840412060917": 96,
+          "841412060263": 96,
+          "932122060857": 96,
+          "932122060861": 96,
+          "932122061900": 81,
+          "932122062010": 96
+        }
+      },
+      "downstream_consequence": "multi-view fusion for the disagreeing camera(s) will be misaligned in time relative to the rest of the rig"
+    }
+  ]
+}

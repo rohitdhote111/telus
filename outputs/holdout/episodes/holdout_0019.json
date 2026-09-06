@@ -1,0 +1,19 @@
+{
+  "episode_id": "holdout_0019",
+  "recommendation": "FAIL",
+  "overall_severity": "fail",
+  "findings": [
+    {
+      "check": "metadata.duration_frame_count_mismatch",
+      "severity": "fail",
+      "message": "declared duration 6.70s is inconsistent with declared frame count / fps (4.20s expected); relative error 59.5% (corpus z=239.3)",
+      "evidence": {
+        "declared_duration_s": 6.698718965439766,
+        "expected_duration_s": 4.2,
+        "relative_error": 0.594933087009468,
+        "z": 239.34158740783403
+      },
+      "downstream_consequence": "any code that slices this episode by declared duration (rather than actual frame timestamps) will misalign with the real data; suggests the metadata was generated or edited independently of the actual capture"
+    }
+  ]
+}

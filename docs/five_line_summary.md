@@ -1,0 +1,7 @@
+# Five-line summary (for the customer / project lead)
+
+1. The drop from 68% to 41% task success has the classic signature of training data that is internally consistent but no longer matches the real robot — most likely wrong calibration, timing misalignment, or shifted action scaling introduced with the latest batch — not a model that needs to be bigger or fed more data.
+2. We built and validated an automated episode-checker that inspects every episode's calibration, clock synchronization, frame completeness, motion trajectories, and metadata, and labels it PASS / REVIEW / FAIL with the exact numbers behind each flag; on test batches with known planted defects it caught 100% of them, with at most 1 in 12 clean episodes sent for unnecessary review.
+3. The 48-hour plan is: first re-run the old model on today's robot to confirm the regression is real and not a robot/eval change; in parallel run the episode-checker on the new batch; then retrain once on old data only, and once on old data plus only the new episodes that pass the checker — about 30–40 robot trials per test is enough to trust the comparison.
+4. Data collection should stay paused until then: pausing costs two days, while collecting through a broken pipeline poisons everything gathered and every model trained on it.
+5. If the evidence lands as expected, the fix is to repair the collection pipeline and make the episode-checker a permanent gate on all future data before it ever reaches training.

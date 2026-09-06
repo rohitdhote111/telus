@@ -1,0 +1,112 @@
+{
+  "holdout_0000": null,
+  "holdout_0001": {
+    "type": "extrinsic_swap",
+    "severity": "mild",
+    "details": {
+      "camera": "932122060861",
+      "angle_deg": 2.0,
+      "trans_m": 0.01
+    }
+  },
+  "holdout_0002": null,
+  "holdout_0003": null,
+  "holdout_0004": {
+    "type": "extrinsic_swap",
+    "severity": "severe",
+    "details": {
+      "camera": "932122060857",
+      "angle_deg": 15.0,
+      "trans_m": 0.08
+    }
+  },
+  "holdout_0005": {
+    "type": "timestamp_drift",
+    "severity": "mild",
+    "details": {
+      "camera": "836212060125",
+      "drift_end_s": 0.03
+    }
+  },
+  "holdout_0006": {
+    "type": "timestamp_drift",
+    "severity": "severe",
+    "details": {
+      "camera": "932122060857",
+      "drift_end_s": 0.15
+    }
+  },
+  "holdout_0007": {
+    "type": "frame_drop",
+    "severity": "mild",
+    "details": {
+      "camera": "932122061900",
+      "start_frame": 34,
+      "run_len": 3
+    }
+  },
+  "holdout_0008": {
+    "type": "frame_drop",
+    "severity": "severe",
+    "details": {
+      "camera": "932122061900",
+      "start_frame": 39,
+      "run_len": 15
+    }
+  },
+  "holdout_0009": null,
+  "holdout_0010": {
+    "type": "pose_teleport",
+    "severity": "mild",
+    "details": {
+      "frame_index": 27,
+      "jump_m": 0.15
+    }
+  },
+  "holdout_0011": {
+    "type": "pose_teleport",
+    "severity": "severe",
+    "details": {
+      "frame_index": 34,
+      "jump_m": 0.6
+    }
+  },
+  "holdout_0012": null,
+  "holdout_0013": null,
+  "holdout_0014": null,
+  "holdout_0015": null,
+  "holdout_0016": null,
+  "holdout_0017": null,
+  "holdout_0018": {
+    "type": "metadata_mismatch",
+    "severity": "mild",
+    "details": {
+      "relative_error": 0.15,
+      "sign": -1
+    }
+  },
+  "holdout_0019": {
+    "type": "metadata_mismatch",
+    "severity": "severe",
+    "details": {
+      "relative_error": 0.6,
+      "sign": 1
+    }
+  },
+  "holdout_0020": {
+    "type": "imu_desync",
+    "severity": "mild",
+    "details": {
+      "offset_s": -0.05
+    }
+  },
+  "holdout_0021": null,
+  "holdout_0022": null,
+  "holdout_0023": {
+    "type": "imu_desync",
+    "severity": "severe",
+    "details": {
+      "offset_s": -0.25
+    }
+  }
+}

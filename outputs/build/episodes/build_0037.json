@@ -1,0 +1,33 @@
+{
+  "episode_id": "build_0037",
+  "recommendation": "FAIL",
+  "overall_severity": "fail",
+  "findings": [
+    {
+      "check": "trajectory.implausible_jump",
+      "severity": "fail",
+      "message": "hand keypoint speed at t=1.70s is 4.67 m/s vs this episode's own median speed 0.39 m/s (within-episode z=18.0); this episode's peak jump is itself a corpus z-score of 37.1 vs other episodes' peak jumps",
+      "evidence": {
+        "frame_index": 51,
+        "timestamp_s": 1.7,
+        "speed_mps": 4.671922807695028,
+        "episode_median_speed_mps": 0.38785566324489945,
+        "within_episode_z": 18.01554606804229
+      },
+      "downstream_consequence": "a physically implausible jump in the labeled hand trajectory produces an action-label spike that a VLA will try to imitate; at inference this is either unreachable (policy attempts an impossible velocity) or the model learns a smoothed/averaged version that undershoots the true motion"
+    },
+    {
+      "check": "trajectory.implausible_jump",
+      "severity": "fail",
+      "message": "hand keypoint speed at t=1.73s is 4.19 m/s vs this episode's own median speed 0.39 m/s (within-episode z=16.0); this episode's peak jump is itself a corpus z-score of 32.3 vs other episodes' peak jumps",
+      "evidence": {
+        "frame_index": 52,
+        "timestamp_s": 1.7333333333333334,
+        "speed_mps": 4.185080135250553,
+        "episode_median_speed_mps": 0.38785566324489945,
+        "within_episode_z": 15.968254021120368
+      },
+      "downstream_consequence": "a physically implausible jump in the labeled hand trajectory produces an action-label spike that a VLA will try to imitate; at inference this is either unreachable (policy attempts an impossible velocity) or the model learns a smoothed/averaged version that undershoots the true motion"
+    }
+  ]
+}
